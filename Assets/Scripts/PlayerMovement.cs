@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float raycastLength;
     [Header("Movement")]
     public float moveSpeed;
-    bool canMove = true;
+    public bool canMove = true;
     bool moving;
     public GameObject currentPoint;
     public GameObject nextPoint = null;
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     float angle;
     public float rotationTarget;
     float r;
-    bool canRotate = true;
+    public bool canRotate = true;
     Rigidbody rb;
     public Highlight highlight;
 
@@ -46,10 +46,18 @@ public class PlayerMovement : MonoBehaviour
 
             if (hit.collider.tag.Equals("Stop"))
             {
-                Debug.Log("Hit");
+                Debug.Log("Hit Stop Point");
                 nextPoint = hit.collider.gameObject;
                 canMove = true;
             }
+
+            if (hit.collider.tag.Equals("Interact"))
+            {
+                Debug.Log("Hit Interactable");
+            }
+        
+        
+        
         }
       
 
